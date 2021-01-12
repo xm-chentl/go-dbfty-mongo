@@ -1,0 +1,10 @@
+[连接字符串说明]
+mongodb://[username:password@]host1[:port1][,host2[:port2],…[,hostN[:portN]]][/[database][?options]]
+注：并非所有MongoDB驱动都支持完整的连接字符串，不支持此格式连接字串的驱动会有替代连接方案，具体请参照驱动自身的说明文档。
+
+ mongodb:// 是连接字串必须的前缀字串
+ username:password@ 可选项，连接到数据库后会尝试验证登陆
+ host1 必须的指定至少一个host
+ :portX 可选项，默认连接到27017
+ /database 如果指定username:password@，连接并验证登陆指定数据库。若不指定，默认打开admin数据库。
+ ?options 是连接选项。如果不使用/database，则前面需要加上/。所有连接选项都是键值对name=value，键值对之间通过&或;（分号）隔开
