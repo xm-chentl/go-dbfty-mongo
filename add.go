@@ -3,9 +3,10 @@ package mongo
 import (
 	"context"
 
+	"go.mongodb.org/mongo-driver/mongo"
+
 	"github.com/xm-chentl/go-dbfty/grammar"
 	"github.com/xm-chentl/go-dbfty/metadata"
-	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type add struct {
@@ -20,7 +21,7 @@ func (a *add) Exec() error {
 		return err
 	}
 
-	// todo.解析结构体为 map
+	// todo: 解析结构体为 map
 	dataMap := table.GetValueByMap(a.data)
 	_, err := a.db.Collection(table.Name()).InsertOne(context.Background(), dataMap)
 	if err != nil {
